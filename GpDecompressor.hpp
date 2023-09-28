@@ -2,6 +2,10 @@
 
 #include "GpCompression_global.hpp"
 
+#include "../GpCore2/GpUtils/Macro/GpMacroClass.hpp"
+#include "../GpCore2/GpUtils/Types/Containers/GpContainersT.hpp"
+#include "../GpCore2/GpUtils/Types/Containers/GpBytesArray.hpp"
+
 namespace GPlatform {
 
 class GpDecompressor

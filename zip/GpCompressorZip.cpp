@@ -1,5 +1,7 @@
 #include "GpCompressorZip.hpp"
 
+#include "../../GpCore2/GpUtils/Types/Strings/GpStringOps.hpp"
+
 #include <filesystem>
 
 namespace GPlatform {

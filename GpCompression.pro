@@ -28,7 +28,6 @@ SOURCES += \
     zip/GpDecompressorZipFactory.cpp
 
 HEADERS += \
-    GpCompression.hpp \
     GpCompression_global.hpp \
     GpCompressor.hpp \
     GpCompressorFactory.hpp \
