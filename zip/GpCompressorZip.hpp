@@ -11,7 +11,7 @@
   #endif
 #endif
 
-#include "../../../MiniZ/miniz.hpp"
+#include <MiniZ/miniz.hpp>
 
 namespace GPlatform {
 
