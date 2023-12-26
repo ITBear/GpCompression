@@ -64,7 +64,7 @@ std::u8string   GpDecompressorZip::ElementName (const size_t aElementId) const
     );
 
     const mz_zip_archive_file_stat stat = _FileStat(aElementId);
-    return std::u8string(GpUTF::S_STR_To_UTF8(stat.m_filename));
+    return std::u8string(GpUTF::S_As_UTF8(stat.m_filename));
 }
 
 GpBytesArray    GpDecompressorZip::DecompressElement (const size_t aElementId) const
