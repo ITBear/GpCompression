@@ -17,4 +17,4 @@ public:
     virtual GpCompressorFile::SP    NewInstance                 (void) override final;
 };
 
-}//namespace GPlatform
+}// namespace GPlatform

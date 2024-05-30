@@ -1,7 +1,5 @@
 #pragma once
 
-#include "GpCompression_global.hpp"
-
 #include <GpCore2/GpUtils/Macro/GpMacroClass.hpp>
 #include <GpCore2/GpUtils/Types/Containers/GpContainersT.hpp>
 
@@ -14,14 +12,14 @@ public:
     CLASS_DD(GpCompressor)
 
 protected:
-                            GpCompressor        (void) noexcept = default;
+                    GpCompressor    (void) noexcept = default;
 
 public:
-    virtual                 ~GpCompressor       (void) noexcept = default;
+    virtual         ~GpCompressor   (void) noexcept = default;
 
-    virtual void            Close               (void) noexcept = 0;
-    virtual void            OpenFile            (std::u8string_view aFileName) = 0;
-    virtual void            CompressAndAdd      (std::u8string_view aPathOrFile) = 0;
+    virtual void    Close           (void) noexcept = 0;
+    virtual void    OpenFile        (std::string_view aFileName) = 0;
+    virtual void    CompressAndAdd  (std::string_view aPathOrFile) = 0;
 };
 
-}//namespace GPlatform
+}// namespace GPlatform

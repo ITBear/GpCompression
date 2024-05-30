@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../GpCompressorFactory.hpp"
+#include "../GpCompression_global.hpp"
 
 namespace GPlatform {
 
@@ -17,4 +18,4 @@ public:
     virtual GpCompressor::SP        NewInstance             (void) override final;
 };
 
-}//namespace GPlatform
+}// namespace GPlatform

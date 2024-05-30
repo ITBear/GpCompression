@@ -19,4 +19,4 @@ public:
     virtual GpCompressorStream::SP  NewInstance                 (void) = 0;
 };
 
-}//namespace GPlatform
+}// namespace GPlatform

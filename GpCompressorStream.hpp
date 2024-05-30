@@ -25,4 +25,4 @@ public:
     virtual void        Decompress          (GpByteWriter&  aWriter) = 0;
 };
 
-}//namespace GPlatform
+}// namespace GPlatform

@@ -20,37 +20,37 @@ void    GpCompressorZip::Close (void) noexcept
     _Close();
 }
 
-void    GpCompressorZip::OpenFile (std::u8string_view aFileName)
+void    GpCompressorZip::OpenFile (std::string_view aFileName)
 {
     Close();
 
     mz_zip_zero_struct(&iZip);
 
-    const std::u8string fileName(aFileName);
+    const std::string fileName(aFileName);
 
     const mz_bool zipInitRes = mz_zip_writer_init_file
     (
         &iZip,
-        reinterpret_cast<const char*>(fileName.data()),
+        reinterpret_cast<const char*>(std::data(fileName)),
         0
     );
 
     THROW_COND_GP
     (
-        zipInitRes == true,
-        [&](){return u8"Failed to write zip file '"_sv + aFileName + u8"'"_sv;}
+        zipInitRes == static_cast<decltype(zipInitRes)>(true),
+        [&](){return "Failed to write zip file '"_sv + aFileName + "'"_sv;}
     );
 
     iFileName   = aFileName;
     iIsOpen     = true;
 }
 
-void    GpCompressorZip::CompressAndAdd (std::u8string_view aPathOrFile)
+void    GpCompressorZip::CompressAndAdd (std::string_view aPathOrFile)
 {
     THROW_COND_GP
     (
         iIsOpen == true,
-        u8"Archive is not open"_sv
+        "Archive is not open"_sv
     );
 
     std::filesystem::path rootPath(aPathOrFile);
@@ -59,7 +59,7 @@ void    GpCompressorZip::CompressAndAdd (std::u8string_view aPathOrFile)
     {
         _AddFile
         (
-            rootPath.filename().u8string(),
+            rootPath.filename().string(),
             aPathOrFile
         );
 
@@ -78,8 +78,8 @@ void    GpCompressorZip::CompressAndAdd (std::u8string_view aPathOrFile)
 
         _AddFile
         (
-            std::filesystem::relative(fullPath, rootPath).u8string(),
-            fullPath.u8string()
+            std::filesystem::relative(fullPath, rootPath).string(),
+            fullPath.string()
         );
     }
 }
@@ -96,18 +96,18 @@ void    GpCompressorZip::_Close (void) noexcept
 
 void    GpCompressorZip::_AddFile
 (
-    std::u8string_view aFileNameInArchive,
-    std::u8string_view aFileNameSrc
+    std::string_view aFileNameInArchive,
+    std::string_view aFileNameSrc
 )
 {
-    const std::u8string fileNameInArchive(aFileNameInArchive);
-    const std::u8string fileNameSrc(aFileNameSrc);
+    const std::string fileNameInArchive(aFileNameInArchive);
+    const std::string fileNameSrc(aFileNameSrc);
 
     const mz_bool zipAddFileRes = mz_zip_writer_add_file
     (
         &iZip,
-        reinterpret_cast<const char*>(fileNameInArchive.data()),
-        reinterpret_cast<const char*>(fileNameSrc.data()),
+        reinterpret_cast<const char*>(std::data(fileNameInArchive)),
+        reinterpret_cast<const char*>(std::data(fileNameSrc)),
         nullptr,
         0,
         MZ_BEST_COMPRESSION
@@ -115,9 +115,9 @@ void    GpCompressorZip::_AddFile
 
     THROW_COND_GP
     (
-        zipAddFileRes == true,
-        [&](){return u8"Failed to add file '"_sv + aFileNameSrc + u8"' to ZIP file '"_sv + iFileName + u8"'"_sv;}
+        zipAddFileRes == static_cast<decltype(zipAddFileRes)>(true),
+        [&](){return "Failed to add file '"_sv + aFileNameSrc + "' to ZIP file '"_sv + iFileName + "'"_sv;}
     );
 }
 
-}//namespace GPlatform
+}// namespace GPlatform

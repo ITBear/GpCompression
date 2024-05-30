@@ -11,7 +11,7 @@
   #endif
 #endif
 
-#include <MiniZ/miniz.hpp>
+#include <miniz/miniz.hpp>
 
 namespace GPlatform {
 
@@ -26,12 +26,12 @@ public:
     virtual                     ~GpDecompressorZip  (void) noexcept override final;
 
     virtual void                Close               (void) noexcept override final;
-    virtual void                OpenFile            (std::u8string_view aFileName) override final;
+    virtual void                OpenFile            (std::string_view aFileName) override final;
     virtual size_t              ElementsCount       (void) const override final;
-    virtual std::u8string       ElementName         (const size_t aElementId) const override final;
+    virtual std::string         ElementName         (const size_t aElementId) const override final;
     virtual GpBytesArray        DecompressElement   (const size_t aElementId) const override final;
-    virtual GpBytesArray        DecompressElement   (std::u8string_view aElementName) const override final;
-    //virtual void              DecompressElement   (std::u8string_view aOutFileName) const override final;
+    virtual GpBytesArray        DecompressElement   (std::string_view aElementName) const override final;
+    //virtual void              DecompressElement   (std::string_view aOutFileName) const override final;
 
 private:
     void                        _Close              (void) noexcept;
@@ -41,7 +41,7 @@ private:
 private:
     mz_zip_archive              iZip;
     bool                        iIsOpen = false;
-    std::u8string               iFileName;
+    std::string                 iFileName;
 };
 
-}//namespace GPlatform
+}// namespace GPlatform

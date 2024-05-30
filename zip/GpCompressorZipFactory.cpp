@@ -16,4 +16,4 @@ GpCompressor::SP    GpCompressorZipFactory::NewInstance (void)
     return MakeSP<GpCompressorZip>();
 }
 
-}//namespace GPlatform
+}// namespace GPlatform

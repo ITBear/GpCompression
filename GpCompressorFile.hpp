@@ -19,10 +19,10 @@ protected:
 public:
     virtual             ~GpCompressorFile   (void) noexcept = default;
 
-    virtual void        Compress            (std::u8string_view aPathIn,
-                                             std::u8string_view aFileOut) = 0;
-    virtual void        Decompress          (std::u8string_view aFileIn,
-                                             std::u8string_view aPathOut) = 0;
+    virtual void        Compress            (std::string_view   aPathIn,
+                                             std::string_view   aFileOut) = 0;
+    virtual void        Decompress          (std::string_view   aFileIn,
+                                             std::string_view   aPathOut) = 0;
 };
 
-}//namespace GPlatform
+}// namespace GPlatform

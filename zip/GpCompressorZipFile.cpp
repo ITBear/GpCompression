@@ -12,8 +12,8 @@ GpCompressorZipFile::~GpCompressorZipFile (void) noexcept
 
 void    GpCompressorZipFile::Compress
 (
-    std::u8string_view  /*aPathIn*/,
-    std::u8string_view  /*aFileOut*/
+    std::string_view    /*aPathIn*/,
+    std::string_view    /*aFileOut*/
 )
 {
     //TODO: implement
@@ -22,12 +22,12 @@ void    GpCompressorZipFile::Compress
 
 void    GpCompressorZipFile::Decompress
 (
-    std::u8string_view  /*aFileIn*/,
-    std::u8string_view  /*aPathOut*/
+    std::string_view    /*aFileIn*/,
+    std::string_view    /*aPathOut*/
 )
 {
     //TODO: implement
     THROW_GP_NOT_IMPLEMENTED();
 }
 
-}//namespace GPlatform
+}// namespace GPlatform
