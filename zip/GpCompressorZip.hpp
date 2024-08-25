@@ -22,22 +22,22 @@ public:
     CLASS_DD(GpCompressorZip)
 
 public:
-                            GpCompressorZip     (void) noexcept;
-    virtual                 ~GpCompressorZip    (void) noexcept override final;
+                        GpCompressorZip     (void) noexcept;
+    virtual             ~GpCompressorZip    (void) noexcept override final;
 
-    virtual void            Close               (void) noexcept override final;
-    virtual void            OpenFile            (std::string_view aFileName) override final;
-    virtual void            CompressAndAdd      (std::string_view aPathOrFile) override final;
-
-private:
-    void                    _Close              (void) noexcept;
-    void                    _AddFile            (std::string_view aFileNameInArchive,
-                                                 std::string_view aFileNameSrc);
+    virtual void        Close               (void) noexcept override final;
+    virtual void        OpenFile            (std::string_view aFileName) override final;
+    virtual void        CompressAndAdd      (std::string_view aPathOrFile) override final;
 
 private:
-    mz_zip_archive          iZip;
-    bool                    iIsOpen = false;
-    std::string             iFileName;
+    void                _Close              (void) noexcept;
+    void                _AddFile            (std::string_view aFileNameInArchive,
+                                             std::string_view aFileNameSrc);
+
+private:
+    mz_zip_archive      iZip;
+    bool                iIsOpen = false;
+    std::string         iFileName;
 };
 
 }// namespace GPlatform
