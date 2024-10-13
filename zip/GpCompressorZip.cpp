@@ -1,5 +1,4 @@
-#include "GpCompressorZip.hpp"
-
+#include <GpCompression/zip/GpCompressorZip.hpp>
 #include <GpCore2/GpUtils/Types/Strings/GpStringOps.hpp>
 
 #include <filesystem>
@@ -116,7 +115,15 @@ void    GpCompressorZip::_AddFile
     THROW_COND_GP
     (
         zipAddFileRes == static_cast<decltype(zipAddFileRes)>(true),
-        [&](){return "Failed to add file '"_sv + aFileNameSrc + "' to ZIP file '"_sv + iFileName + "'"_sv;}
+        [&]()
+        {
+            return fmt::format
+            (
+                "Failed to add file '{}' to ZIP file '{}'",
+                aFileNameSrc,
+                iFileName
+            );
+        }
     );
 }
 

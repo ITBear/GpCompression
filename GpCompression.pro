@@ -11,18 +11,22 @@ DIR_LEVEL       = ./..
 
 include($$DIR_LEVEL/../QtGlobalPro.pri)
 
-release_build_static{
+equals(var_link, "static") {
 	CONFIG += staticlib
 }
 
 # ----------- Libraries -----------
-os_windows{
+equals(var_os, "windows") {
 	LIBS += -lGpUtils$$TARGET_POSTFIX
 
 	LIBS += -lminiz
 }
 
-os_linux{
+equals(var_os, "linux") {
+	LIBS += -lGpUtils$$TARGET_POSTFIX
+
+	LIBS += -lminiz
+	LIBS += -lfmt
 }
 
 # ----------- Sources and headers -----------
@@ -51,5 +55,4 @@ HEADERS += \
     zip/GpCompressorZipFile.hpp \
     zip/GpCompressorZipFileFactory.hpp \
     zip/GpDecompressorZip.hpp \
-    zip/GpDecompressorZipFactory.hpp \
-    zip/GpZip.hpp
+    zip/GpDecompressorZipFactory.hpp

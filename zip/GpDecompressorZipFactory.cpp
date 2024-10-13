@@ -1,5 +1,5 @@
-#include "GpDecompressorZipFactory.hpp"
-#include "GpDecompressorZip.hpp"
+#include <GpCompression/zip/GpDecompressorZipFactory.hpp>
+#include <GpCompression/zip/GpDecompressorZip.hpp>
 
 namespace GPlatform {
 

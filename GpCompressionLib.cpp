@@ -1,7 +1,7 @@
-#include "GpCompressionLib.hpp"
+#include <GpCompression/GpCompressionLib.hpp>
 
 namespace GPlatform {
 
-GP_IMPLEMENT_LIB(GpCompressionLib)
+GP_IMPLEMENT_LIB_REGISTRATOR(GpCompressionLib)
 
 }// namespace GPlatform

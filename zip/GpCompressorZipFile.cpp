@@ -1,4 +1,4 @@
-#include "GpCompressorZipFile.hpp"
+#include <GpCompression/zip/GpCompressorZipFile.hpp>
 
 namespace GPlatform {
 
@@ -12,8 +12,8 @@ GpCompressorZipFile::~GpCompressorZipFile (void) noexcept
 
 void    GpCompressorZipFile::Compress
 (
-    std::string_view    /*aPathIn*/,
-    std::string_view    /*aFileOut*/
+    std::string_view /*aPathIn*/,
+    std::string_view /*aFileOut*/
 )
 {
     //TODO: implement
@@ -22,8 +22,8 @@ void    GpCompressorZipFile::Compress
 
 void    GpCompressorZipFile::Decompress
 (
-    std::string_view    /*aFileIn*/,
-    std::string_view    /*aPathOut*/
+    std::string_view /*aFileIn*/,
+    std::string_view /*aPathOut*/
 )
 {
     //TODO: implement

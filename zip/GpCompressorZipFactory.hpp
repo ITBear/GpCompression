@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../GpCompressorFactory.hpp"
-#include "../GpCompression_global.hpp"
+#include <GpCompression/GpCompressorFactory.hpp>
+#include <GpCompression/GpCompression_global.hpp>
 
 namespace GPlatform {
 

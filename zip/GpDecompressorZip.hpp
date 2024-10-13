@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../GpDecompressor.hpp"
+#include <GpCompression/GpDecompressor.hpp>
 
 #if defined(__GNUC__)
   #ifndef _FILE_OFFSET_BITS
@@ -11,7 +11,7 @@
   #endif
 #endif
 
-#include <miniz/miniz.hpp>
+#include <miniz/miniz.h>
 
 namespace GPlatform {
 
@@ -28,14 +28,14 @@ public:
     virtual void                Close               (void) noexcept override final;
     virtual void                OpenFile            (std::string_view aFileName) override final;
     virtual size_t              ElementsCount       (void) const override final;
-    virtual std::string         ElementName         (const size_t aElementId) const override final;
-    virtual GpBytesArray        DecompressElement   (const size_t aElementId) const override final;
+    virtual std::string         ElementName         (size_t aElementId) const override final;
+    virtual GpBytesArray        DecompressElement   (size_t aElementId) const override final;
     virtual GpBytesArray        DecompressElement   (std::string_view aElementName) const override final;
     //virtual void              DecompressElement   (std::string_view aOutFileName) const override final;
 
 private:
     void                        _Close              (void) noexcept;
-    mz_zip_archive_file_stat    _FileStat           (const size_t aElementId) const;
+    mz_zip_archive_file_stat    _FileStat           (size_t aElementId) const;
     GpBytesArray                _Decompress         (const mz_zip_archive_file_stat& aStat) const;
 
 private:

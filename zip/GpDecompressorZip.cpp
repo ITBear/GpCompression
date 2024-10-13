@@ -1,5 +1,4 @@
-#include "GpDecompressorZip.hpp"
-
+#include <GpCompression/zip/GpDecompressorZip.hpp>
 #include <GpCore2/GpUtils/Types/Strings/GpStringOps.hpp>
 
 namespace GPlatform {

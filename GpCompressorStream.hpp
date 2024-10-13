@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GpCompression_global.hpp"
+#include <GpCompression/GpCompression_global.hpp>
 
 #include <GpCore2/GpUtils/Macro/GpMacroClass.hpp>
 #include <GpCore2/GpUtils/Types/Containers/GpContainersT.hpp>

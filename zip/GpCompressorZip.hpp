@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../GpCompressor.hpp"
+#include <GpCompression/GpCompressor.hpp>
 
 #if defined(__GNUC__)
   #ifndef _FILE_OFFSET_BITS
@@ -11,7 +11,7 @@
   #endif
 #endif
 
-#include <miniz/miniz.hpp>
+#include <miniz/miniz.h>
 
 namespace GPlatform {
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../GpCompressorFile.hpp"
+#include <GpCompression/GpCompressorFile.hpp>
 
 namespace GPlatform {
 
