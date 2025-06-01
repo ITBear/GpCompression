@@ -34,7 +34,7 @@ void    GpCompressorZip::OpenFile (std::string_view aFileName)
         0
     );
 
-    THROW_COND_GP
+    VERIFY
     (
         zipInitRes == static_cast<decltype(zipInitRes)>(true),
         [&](){return "Failed to write zip file '"_sv + aFileName + "'"_sv;}
@@ -46,7 +46,7 @@ void    GpCompressorZip::OpenFile (std::string_view aFileName)
 
 void    GpCompressorZip::CompressAndAdd (std::string_view aPathOrFile)
 {
-    THROW_COND_GP
+    VERIFY
     (
         iIsOpen == true,
         "Archive is not open"_sv
@@ -112,7 +112,7 @@ void    GpCompressorZip::_AddFile
         MZ_BEST_COMPRESSION
     );
 
-    THROW_COND_GP
+    VERIFY
     (
         zipAddFileRes == static_cast<decltype(zipAddFileRes)>(true),
         [&]()

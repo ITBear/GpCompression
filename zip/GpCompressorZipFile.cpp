@@ -17,7 +17,7 @@ void    GpCompressorZipFile::Compress
 )
 {
     //TODO: implement
-    THROW_GP_NOT_IMPLEMENTED();
+    THROW_NOT_IMPLEMENTED();
 }
 
 void    GpCompressorZipFile::Decompress
@@ -27,7 +27,7 @@ void    GpCompressorZipFile::Decompress
 )
 {
     //TODO: implement
-    THROW_GP_NOT_IMPLEMENTED();
+    THROW_NOT_IMPLEMENTED();
 }
 
 }// namespace GPlatform

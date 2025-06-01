@@ -32,7 +32,7 @@ void    GpDecompressorZip::OpenFile (std::string_view aFileName)
         0
     );
 
-    THROW_COND_GP
+    VERIFY
     (
         zipInitRes == static_cast<decltype(zipInitRes)>(true),
         [&](){return "Failed to read zip file '"_sv + aFileName + "'"_sv;}
@@ -44,7 +44,7 @@ void    GpDecompressorZip::OpenFile (std::string_view aFileName)
 
 size_t  GpDecompressorZip::ElementsCount (void) const
 {
-    THROW_COND_GP
+    VERIFY
     (
         iIsOpen == true,
         "Archive is not open"_sv
@@ -56,7 +56,7 @@ size_t  GpDecompressorZip::ElementsCount (void) const
 
 std::string GpDecompressorZip::ElementName (const size_t aElementId) const
 {
-    THROW_COND_GP
+    VERIFY
     (
         iIsOpen == true,
         "Archive is not open"_sv
@@ -68,7 +68,7 @@ std::string GpDecompressorZip::ElementName (const size_t aElementId) const
 
 GpBytesArray    GpDecompressorZip::DecompressElement (const size_t aElementId) const
 {
-    THROW_COND_GP
+    VERIFY
     (
         iIsOpen == true,
         "Archive is not open"_sv
@@ -81,7 +81,7 @@ GpBytesArray    GpDecompressorZip::DecompressElement (const size_t aElementId) c
 
 GpBytesArray    GpDecompressorZip::DecompressElement (std::string_view aElementName) const
 {
-    THROW_COND_GP
+    VERIFY
     (
         iIsOpen == true,
         "Archive is not open"_sv
@@ -97,7 +97,7 @@ GpBytesArray    GpDecompressorZip::DecompressElement (std::string_view aElementN
         MZ_ZIP_FLAG_CASE_SENSITIVE
     );
 
-    THROW_COND_GP
+    VERIFY
     (
         elementId >= 0,
         [&](){return "File '"_sv + aElementName + "' not found in zip archive '"_sv + iFileName + "'"_sv;}
@@ -117,7 +117,7 @@ void    GpDecompressorZip::_Close (void) noexcept
 
 mz_zip_archive_file_stat    GpDecompressorZip::_FileStat (const size_t aElementId) const
 {
-    THROW_COND_GP
+    VERIFY
     (
         iIsOpen == true,
         "Archive is not open"_sv
@@ -133,7 +133,7 @@ mz_zip_archive_file_stat    GpDecompressorZip::_FileStat (const size_t aElementI
         &stat
     );
 
-    THROW_COND_GP
+    VERIFY
     (
         res == static_cast<decltype(res)>(true),
         [&]()
@@ -164,7 +164,7 @@ GpBytesArray    GpDecompressorZip::_Decompress (const mz_zip_archive_file_stat& 
         0
     );
 
-    THROW_COND_GP
+    VERIFY
     (
         extractRes == static_cast<decltype(extractRes)>(true),
         [&]()
